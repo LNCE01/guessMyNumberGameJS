@@ -1,20 +1,14 @@
-"use strict";
+import displayMessage from "./src/utils/displayMessage.js";
 
-//
 //Variable with random number between 1 and 20
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-
 //This variable can also be called "state variable" because is part of the application state (all the data relevant for the application)
 let score = 10;
 let highscore = 0;
-const displayMessage = function (message) {
-  document.querySelector(".message").textContent = message;
-};
-//Event listener applied to check button element. We have to pass an argument with the type of event we are waiting and next, as a second argument, we need to write a function called "the event handler function" to specify the reaction when the event is listen:
+
 document.querySelector(".check").addEventListener("click", function () {
   //Get the value from the input, transform the string into a value and store in "guess" variable
   let guess = Number(document.querySelector(".guess").value);
-
   //When the user does not input a value, display a message. The following only works if it is true. So, "guess" is 0 so its falsy value, but with the not operator, transforms to true.
   if (!guess) {
     displayMessage("Enter a number!");
@@ -51,7 +45,7 @@ document.querySelector(".check").addEventListener("click", function () {
     }
   }
 });
-
+//Play again/reset scores
 document.querySelector(".again").addEventListener("click", function () {
   score = 10;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
