@@ -1,8 +1,8 @@
+import randomNumber from "./src/utils/randomNumber.js";
 import displayMessage from "./src/utils/displayMessage.js";
 
-//Variable with random number between 1 and 20
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
-//This variable can also be called "state variable" because is part of the application state (all the data relevant for the application)
+//Random number between 1 and 20
+let secretNumber = randomNumber;
 let score = 10;
 let highscore = 0;
 
@@ -48,7 +48,7 @@ document.querySelector(".check").addEventListener("click", function () {
 //Play again/reset scores
 document.querySelector(".again").addEventListener("click", function () {
   score = 10;
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  secretNumber = randomNumber;
   displayMessage("Start Guessing!");
   document.querySelector(".score").textContent = score;
   document.querySelector(".number").textContent = "?";
